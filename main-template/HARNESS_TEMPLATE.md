@@ -1,0 +1,142 @@
+# HARNESS_TEMPLATE
+
+This directory is the canonical template source for a local-first engineering cognition harness: explicit planning, repo-local memory, bounded role work, verification contracts, failure memory, and model-swappable execution.
+
+Use the canonical harness library as reference material, then mirror the relevant files into the target host or repo when initializing the harness there.
+
+The goal is not speed by default. The goal is lower ritual cost while preserving epistemic discipline.
+
+## Core Principles
+
+- Use a map, not an encyclopedia. Runtime prompts point to deeper docs instead of embedding them.
+- Keep shared canon and repo-local memory separate.
+- Keep repo-local memory as the system of record. If future agents need it, put it in the repo.
+- Separate roles behaviorally even when the same model performs them.
+- Treat verification as a contract, not an afterthought.
+- Track recurring failure patterns separately from decisions.
+- Make prompts local-model compatible: bounded tasks, explicit inputs, observable outputs, and low reliance on intuition.
+
+## Canonical Source Layout
+
+```text
+agents/
+  harnessed.agent.md
+  harness-planner.agent.md
+  harness-implementer.agent.md
+  harness-reviewer.agent.md
+  harness-adversary.agent.md
+  harness-archivist.agent.md
+  agent-reference-type-system.md
+
+main-template/
+  HARNESS_TEMPLATE.md
+  runtime-contract.md
+  roles.md
+  handoff-packet.md
+  verification-contract.md
+  known-failures.md
+  archive-policy.md
+  canon/
+    type-system-operational.md
+    bridge-schema.md
+
+implementation-project-templates/
+  index.md
+  implementation-plan.md
+  implementation-tracker.md
+  implementation-verification-contract.md
+  implementation-decisions.md
+  seam-handoff.md
+```
+
+## Seeded Host Structure
+
+```text
+.github/agents/ or user agent folder/
+  harnessed.agent.md
+  harness-planner.agent.md
+  harness-implementer.agent.md
+  harness-reviewer.agent.md
+  harness-adversary.agent.md
+  harness-archivist.agent.md
+
+docs/harness/
+  HARNESS_TEMPLATE.md
+  runtime-contract.md
+  roles.md
+  handoff-packet.md
+  verification-contract.md
+  known-failures.md
+  archive-policy.md
+  canon/
+    type-system-operational.md
+    bridge-schema.md
+
+docs/implementation-projects/
+  index.md
+  implementation-01-plan.md
+  implementation-01-tracker.md
+  implementation-01-verification-contract.md
+  implementation-01-decisions.md
+  implementation-01-seams/
+  implementation-01-evidence/
+  archive/
+  templates/
+```
+
+The canonical source stores templates and role prompts. The seeded host copy stores active repo-local memory.
+Do not record live project state in the canonical source unless you are explicitly updating the harness itself.
+
+For small one-off work, skip project scaffolding and use a lightweight chat plan. For multi-step, repo-scoped, or architecture-shaping work, create the numbered implementation files.
+
+## File Responsibilities
+
+- `runtime-contract.md`: always-on orchestration behavior and approval boundaries.
+- `roles.md`: planner, implementer, reviewer, adversary, and archivist responsibilities.
+- `handoff-packet.md`: standard payload for role transitions.
+- `verification-contract.md`: required validation structure for non-trivial work.
+- `known-failures.md`: recurring harness and repo failure patterns.
+- `archive-policy.md`: when and how completed work is summarized.
+- `canon/type-system-operational.md`: compact operational version of the claim discipline.
+- `canon/bridge-schema.md`: full bridge schema for high-risk or epistemically sensitive moves.
+- `implementation-XX-plan.md`: goal, non-goals, seams, blast radius, and approval gates.
+- `implementation-XX-tracker.md`: status, work log, role handoffs, and current next action.
+- `implementation-XX-verification-contract.md`: concrete validation obligations and evidence.
+- `implementation-XX-decisions.md`: decisions made during the work, separate from failures.
+
+## Workflow
+
+1. Orchestrator scouts the request and identifies the controlling surface.
+2. Planner creates or updates the plan, tracker, seams, approval gates, and verification contract.
+3. Human approval is required before crossing approval boundaries.
+4. Implementer executes one seam at a time.
+5. Reviewer checks the diff against the plan and verification contract.
+6. Adversary stress-tests assumptions when risk, uncertainty, or recurrence justifies it.
+7. Archivist updates decisions, known failures, verification evidence, index, and archive summary.
+
+## Escalation Boundaries
+
+Escalate before changing schema, API, auth, storage, deployment, billing, destructive operations, broad architecture, compatibility promises, or any behavior whose safest path depends on product intent rather than local mechanics.
+
+Escalate when a role discovers that its assigned seam is wrong, too large, blocked, or dependent on an unapproved boundary.
+
+## Approval Boundaries
+
+Approval must name the boundary and scope. Approval for one schema change is not approval for a deployment change. Approval for a local refactor is not approval for a compatibility layer.
+
+If approval is missing, write the escalation note and stop at the boundary.
+
+## Archive Strategy
+
+Archive after the verification contract is complete or explicitly deferred. The archive summary should include what changed, why, evidence, decisions, known failures added, and remaining risks.
+
+Do not archive by dumping chat history. Archive by preserving the minimum future-resume context.
+
+## Local-Model Compatibility
+
+- Prefer short sections and numbered procedures.
+- Use explicit file paths and bounded scopes.
+- Avoid relying on style, taste, or intuition without observable criteria.
+- Keep role prompts single-purpose.
+- Put deep references behind links, not in runtime context.
+- Write handoffs so a weaker model can continue without guessing the hidden plan.
