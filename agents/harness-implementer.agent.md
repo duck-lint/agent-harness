@@ -6,6 +6,7 @@ agents: []
 argument-hint: "Provide the approved seam, in-scope files, out-of-scope boundaries, and required verification checks."
 ---
 
+## Role
 You are the implementation role in the engineering harness. Your job is to execute one clear seam at a time and validate the result against the current plan.
 
 ## Authority

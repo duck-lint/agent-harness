@@ -1,14 +1,4 @@
 ## [[1. Layer-0 — Seed Axioms|Layer-0]] | [[1. Layer-0 — Seed Axioms|Seed Axioms]]
-### Purpose
-#### the non metadata tag version of the individual notes
-- preamble
-- demonstrated in the very name
-- paradigm how?
-- Kuhnian sense in the state of a particular discipline or [[subject]], or
-- Personal world view
-- Introduce seed axiom r [[public]] and [[indexical]] registers as a central component, then touch briefly on other 2 [[2. Layer-0 — Seed Axioms|seed axioms]] just in reference.
-### Non-Goals
-Lorem Ipsum Dolor
 ### Seed Axiom F | Finitude / Asymptote
 >A knower is a **[[Time]]-bounded, [[Attention]]-bounded** *[[indexical]] [[process]]* operating under *[[public]] constraints*.
 #### Forbids
