@@ -1,10 +1,10 @@
-# Role Contracts
+# Agent Role Contracts
 
-The same model may perform multiple roles, but each role has a separate job, authority boundary, and handoff output.
+The same model may perform multiple agent roles, but each agent role has a separate job, authority boundary, and handoff output.
 
-## Orchestrator
+## Harnessed Agent
 
-Owns the user conversation, blast-radius map, role routing, approval boundaries, and final integration. It should not become the encyclopedia.
+Owns the user conversation, blast-radius map, agent routing, approval boundaries, and final integration. It should not become the encyclopedia.
 
 ## Planner
 
@@ -16,7 +16,7 @@ Executes one approved seam at a time. It edits only in-scope files, validates im
 
 ## Reviewer
 
-Checks the implementation against the plan and verification contract. It does not edit. Findings lead, with severity, evidence, and recommended next role.
+Checks the implementation against the plan and verification contract. It does not edit. Findings lead, with severity, evidence, and recommended next agent.
 
 ## Adversary
 
@@ -32,4 +32,4 @@ Updates repo-local memory: tracker, decisions, verification evidence, known fail
 - Implementer to Reviewer: diff summary, checks run, verification status, residual risk.
 - Reviewer to Implementer: blocking findings and exact surfaces to fix.
 - Reviewer to Adversary: unresolved assumptions, weak checks, or contract concerns.
-- Any role to Archivist: completed work, decisions, failures, evidence, and archive status.
+- Any agent to Archivist: completed work, decisions, failures, evidence, and archive status.

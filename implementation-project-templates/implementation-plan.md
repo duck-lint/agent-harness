@@ -39,6 +39,6 @@ Use `implementation-XX-verification-contract.md`.
 
 ## Next Handoff
 
-- Role:
+- Agent Role:
 - Scope:
 - Stop condition:

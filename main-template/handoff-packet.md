@@ -1,6 +1,6 @@
 # Handoff Packet
 
-Use this structure whenever work moves between roles or resumes in a new session.
+Use this structure whenever work moves between agents or resumes in a new session.
 
 ## Role
 

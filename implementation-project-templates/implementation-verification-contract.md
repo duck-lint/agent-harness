@@ -6,7 +6,7 @@ Use [../../harness/verification-contract.md](../../harness/verification-contract
 
 - Project:
 - Seam:
-- Owner role:
+- Owner agent role:
 - Last updated:
 - Status: proposed
 

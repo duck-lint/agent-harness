@@ -1,17 +1,14 @@
-# HARNESS_TEMPLATE
+# External Cognition Harness
 
-This directory is the canonical template source for a local-first engineering cognition harness: explicit planning, repo-local memory, bounded role work, verification contracts, failure memory, and model-swappable execution.
-
-Use the canonical harness library as reference material, then mirror the relevant files into the target host or repo when initializing the harness there.
+This directory is the agent cognition harness: externalized cognition through explicit planning, repo-local memory, bounded agent work, verification contracts, failure memory, and model-swappable execution.
 
 The goal is not speed by default. The goal is lower ritual cost while preserving epistemic discipline.
 
 ## Core Principles
 
 - Use a map, not an encyclopedia. Runtime prompts point to deeper docs instead of embedding them.
-- Keep shared canon and repo-local memory separate.
-- Keep repo-local memory as the system of record. If future agents need it, put it in the repo.
-- Separate roles behaviorally even when the same model performs them.
+- Keep repo-local memory as the system of record. If future agents need it, document it in the repo harness.
+- Separate agents behaviorally even when the same model performs them.
 - Treat verification as a contract, not an afterthought.
 - Track recurring failure patterns separately from decisions.
 - Make prompts local-model compatible: bounded tasks, explicit inputs, observable outputs, and low reliance on intuition.
@@ -19,7 +16,7 @@ The goal is not speed by default. The goal is lower ritual cost while preserving
 ## Canonical Source Layout
 
 ```text
-agents/
+agents/ (in .copilot global agent config already)
   harnessed.agent.md
   harness-planner.agent.md
   harness-implementer.agent.md
@@ -29,7 +26,7 @@ agents/
   agent-reference-type-system.md
 
 main-template/
-  HARNESS_TEMPLATE.md
+  README.md
   runtime-contract.md
   roles.md
   handoff-packet.md
@@ -52,16 +49,8 @@ implementation-project-templates/
 ## Seeded Host Structure
 
 ```text
-.github/agents/ or user agent folder/
-  harnessed.agent.md
-  harness-planner.agent.md
-  harness-implementer.agent.md
-  harness-reviewer.agent.md
-  harness-adversary.agent.md
-  harness-archivist.agent.md
-
 docs/harness/
-  HARNESS_TEMPLATE.md
+  README.md
   runtime-contract.md
   roles.md
   handoff-packet.md
@@ -84,29 +73,26 @@ docs/implementation-projects/
   templates/
 ```
 
-The canonical source stores templates and role prompts. The seeded host copy stores active repo-local memory.
-Do not record live project state in the canonical source unless you are explicitly updating the harness itself.
-
 For small one-off work, skip project scaffolding and use a lightweight chat plan. For multi-step, repo-scoped, or architecture-shaping work, create the numbered implementation files.
 
 ## File Responsibilities
 
 - `runtime-contract.md`: always-on orchestration behavior and approval boundaries.
 - `roles.md`: planner, implementer, reviewer, adversary, and archivist responsibilities.
-- `handoff-packet.md`: standard payload for role transitions.
+- `handoff-packet.md`: standard payload for agent transitions.
 - `verification-contract.md`: required validation structure for non-trivial work.
 - `known-failures.md`: recurring harness and repo failure patterns.
 - `archive-policy.md`: when and how completed work is summarized.
 - `canon/type-system-operational.md`: compact operational version of the claim discipline.
 - `canon/bridge-schema.md`: full bridge schema for high-risk or epistemically sensitive moves.
 - `implementation-XX-plan.md`: goal, non-goals, seams, blast radius, and approval gates.
-- `implementation-XX-tracker.md`: status, work log, role handoffs, and current next action.
+- `implementation-XX-tracker.md`: status, work log, agent handoffs, and current next action.
 - `implementation-XX-verification-contract.md`: concrete validation obligations and evidence.
 - `implementation-XX-decisions.md`: decisions made during the work, separate from failures.
 
 ## Workflow
 
-1. Orchestrator scouts the request and identifies the controlling surface.
+1. Main Harnessed Agent scouts the request and identifies the controlling surface.
 2. Planner creates or updates the plan, tracker, seams, approval gates, and verification contract.
 3. Human approval is required before crossing approval boundaries.
 4. Implementer executes one seam at a time.
@@ -118,7 +104,7 @@ For small one-off work, skip project scaffolding and use a lightweight chat plan
 
 Escalate before changing schema, API, auth, storage, deployment, billing, destructive operations, broad architecture, compatibility promises, or any behavior whose safest path depends on product intent rather than local mechanics.
 
-Escalate when a role discovers that its assigned seam is wrong, too large, blocked, or dependent on an unapproved boundary.
+Escalate when an agent discovers that its assigned seam is wrong, too large, blocked, or dependent on an unapproved boundary.
 
 ## Approval Boundaries
 
@@ -137,6 +123,6 @@ Do not archive by dumping chat history. Archive by preserving the minimum future
 - Prefer short sections and numbered procedures.
 - Use explicit file paths and bounded scopes.
 - Avoid relying on style, taste, or intuition without observable criteria.
-- Keep role prompts single-purpose.
+- Keep agent prompts single-purpose.
 - Put deep references behind links, not in runtime context.
 - Write handoffs so a weaker model can continue without guessing the hidden plan.

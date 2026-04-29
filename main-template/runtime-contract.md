@@ -1,13 +1,13 @@
 # Runtime Contract
 
-This document defines the always-on behavior for the harness orchestrator and role agents. It should stay shorter than the canon.
+This document defines the always-on behavior for the harness orchestrator and agent roles. It should stay shorter than the canon.
 
 ## Runtime Job
 
 - Identify the controlling surface.
 - Separate evidence, inference, unknowns, and speculation.
 - Map blast radius before behavior-changing edits.
-- Route work to the correct role.
+- Route work to the correct agent.
 - Keep verification explicit.
 - Update repo-local memory when the project state changes.
 

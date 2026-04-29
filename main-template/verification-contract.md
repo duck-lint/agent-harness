@@ -6,7 +6,7 @@ Verification is a first-class contract. A change is not complete until each requ
 
 - Project:
 - Seam:
-- Owner role:
+- Owner agent:
 - Last updated:
 - Status: proposed | active | passed | blocked | deferred
 

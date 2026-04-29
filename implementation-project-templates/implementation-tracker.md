@@ -3,24 +3,24 @@
 ## Status
 
 - State: proposed | active | blocked | reviewing | archived
-- Current role:
+- Current agent role:
 - Current seam:
 - Next action:
 
 ## Work Log
 
-| Date | Role | Change | Evidence | Next |
+| Date | Agent Role | Change | Evidence | Next |
 | --- | --- | --- | --- | --- |
 |  |  |  |  |  |
 
 ## Seam Status
 
-| Seam | Owner Role | Status | Verification | Notes |
+| Seam | Owner Agent | Status | Verification | Notes |
 | --- | --- | --- | --- | --- |
 |  |  | proposed |  |  |
 
 ## Blockers
 
-| Blocker | Boundary | Owner | Resolution |
+| Blocker | Boundary | Owner Agent | Resolution |
 | --- | --- | --- | --- |
 |  |  |  |  |

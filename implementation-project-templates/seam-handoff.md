@@ -3,7 +3,7 @@
 ## Seam
 
 - Name:
-- Owner role:
+- Owner agent role:
 - Status:
 
 ## Scope
