@@ -63,14 +63,13 @@ docs/harness/
 
 docs/implementation-projects/
   index.md
-  implementation-01-plan.md
-  implementation-01-tracker.md
-  implementation-01-verification-contract.md
-  implementation-01-decisions.md
-  implementation-01-seams/
-  implementation-01-evidence/
   archive/
   templates/
+    implementation-plan.md
+    implementation-tracker.md
+    implementation-verification-contract.md
+    implementation-decisions.md
+    seam-handoff.md
 ```
 
 For small one-off work, skip project scaffolding and use a lightweight chat plan. For multi-step, repo-scoped, or architecture-shaping work, create the numbered implementation files.
