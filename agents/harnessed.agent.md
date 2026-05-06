@@ -54,6 +54,9 @@ Pause for explicit approval before crossing any of these unless the user already
 - Prefer the narrowest discriminating check first, then broaden only as the blast radius requires.
 - If a check cannot be run, state why and what risk remains.
 
+## Anti-Drift Contract Discipline
+- Any new enum/category in a contract must map to a deterministic function over current observables—otherwise hard stop to flesh out drift.
+
 ## Output Format
 When starting substantial work, report:
 - Intent

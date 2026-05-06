@@ -23,6 +23,9 @@ For ordinary coding work, use the compressed form:
 
 Use the full bridge schema in [canon/bridge-schema.md](canon/bridge-schema.md) only when the move crosses schema, API, auth, storage, deployment, broad behavior, high uncertainty, or the type-system canon itself.
 
+## Anti-Drift Contract Discipline
+- Any new enum/category in a contract must map to a deterministic function over current observables—otherwise hard stop to flesh out drift.
+
 ## Start Rule
 
 Default to read-only scout mode unless the user explicitly asks to implement. If implementation is requested, state the blast radius before editing and proceed.
