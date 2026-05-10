@@ -24,3 +24,7 @@
 | Blocker | Boundary | Owner Agent | Resolution |
 | --- | --- | --- | --- |
 |  |  |  |  |
+
+## Closeout Note
+
+- If this bundle completes, move it from `active/` to `archive/`, add `implementation-XX-summary.md`, and update `index.md`, `open-decisions.md`, and any stale superseded or inactive pointers in the same turn.

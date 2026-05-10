@@ -37,3 +37,5 @@ Verification is a first-class contract. A change is not complete until each requ
 ## Acceptance Rule
 
 Every check must be pass, fail, blocked, skipped with reason, or deferred with owner. Failures and blocked items require either implementation follow-up, explicit quarantine, or human approval to proceed.
+
+If the work changes project-memory state, acceptance also requires a documented closeout result for the relevant implementation bundle, index, and decision pointers: pass, blocked with owner, or deferred with owner.

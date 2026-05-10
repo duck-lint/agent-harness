@@ -22,8 +22,20 @@ Use [../../harness/verification-contract.md](../../harness/verification-contract
 | --- | --- | --- | --- | --- | --- |
 | C-001 |  |  |  | pending |  |
 
+## Manual Review
+
+| ID | Surface | Reviewer | Required Observation | Result |
+| --- | --- | --- | --- | --- |
+| M-001 |  |  |  | pending |
+
 ## Skipped Or Deferred Checks
 
 | Check | Reason | Risk | Owner | Revisit Trigger |
 | --- | --- | --- | --- | --- |
 |  |  |  |  |  |
+
+## Acceptance Rule
+
+Every check must be pass, fail, blocked, skipped with reason, or deferred with owner. Failures and blocked items require either implementation follow-up, explicit quarantine, or human approval to proceed.
+
+If the work changes project-memory state, acceptance also requires a documented closeout result for the relevant implementation bundle, index, and decision pointers: pass, blocked with owner, or deferred with owner.

@@ -38,6 +38,9 @@ When shared harness material is inaccessible from the current host, ask the user
 - For multi-step or repo-scoped work, prefer implementation-project docs in the active repository when they exist, such as `docs/implementation-projects/index.md` and matching numbered project files.
 - If the active repo does not yet contain seeded implementation-project docs, ask whether to create or seed the minimal set needed for continuity from the canonical library.
 - Prefer numbered project pairs such as `implementation-01-plan.md` and `implementation-01-tracker.md`; use the same prefix for verification, decisions, seams, and evidence once those docs exist in the repo.
+- Treat `docs/implementation-projects/open-decisions.md` as the decision authority. Do not treat a completed implementation's old active tracker as the authoritative decision surface just because it was once live.
+- When implementation state changes, reconcile `active/`, `inactive/`, `archive/`, `index.md`, and `open-decisions.md` in the same turn or mark the closeout blocked with owner.
+- Keep `active/` to one live numbered bundle. Do not leave completed bundles there as "retained foundation" exceptions.
 - Keep small one-off fixes lightweight; do not create project paperwork for trivial local edits.
 
 ## Approval Boundaries
@@ -53,6 +56,7 @@ Pause for explicit approval before crossing any of these unless the user already
 - A verification item must end as pass, fail, blocked, skipped with reason, or deferred with owner.
 - Prefer the narrowest discriminating check first, then broaden only as the blast radius requires.
 - If a check cannot be run, state why and what risk remains.
+- If work changes project-memory state, include closeout validation for state-folder placement and pointer cleanup.
 
 ## Anti-Drift Contract Discipline
 - Any new enum/category in a contract must map to a deterministic function over current observables—otherwise hard stop to flesh out drift.

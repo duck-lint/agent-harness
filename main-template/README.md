@@ -43,6 +43,7 @@ implementation-project-templates/
   implementation-tracker.md
   implementation-verification-contract.md
   implementation-decisions.md
+  implementation-summary.md
   seam-handoff.md
 ```
 
@@ -63,12 +64,17 @@ docs/harness/
 
 docs/implementation-projects/
   index.md
+  open-decisions.md
+  active/
+  inactive/
   archive/
   templates/
+    index.md
     implementation-plan.md
     implementation-tracker.md
     implementation-verification-contract.md
     implementation-decisions.md
+    implementation-summary.md
     seam-handoff.md
 ```
 
@@ -84,10 +90,13 @@ For small one-off work, skip project scaffolding and use a lightweight chat plan
 - `archive-policy.md`: when and how completed work is summarized.
 - `canon/type-system-operational.md`: compact operational version of the claim discipline.
 - `canon/bridge-schema.md`: full bridge schema for high-risk or epistemically sensitive moves.
+- `index.md`: top-level implementation bundle state and quick lookup surface.
+- `open-decisions.md`: authoritative current-batch decision surface.
 - `implementation-XX-plan.md`: goal, non-goals, seams, blast radius, and approval gates.
 - `implementation-XX-tracker.md`: status, work log, agent handoffs, and current next action.
 - `implementation-XX-verification-contract.md`: concrete validation obligations and evidence.
 - `implementation-XX-decisions.md`: decisions made during the work, separate from failures.
+- `implementation-XX-summary.md`: archive closeout summary for a completed numbered bundle.
 
 ## Workflow
 
@@ -97,7 +106,7 @@ For small one-off work, skip project scaffolding and use a lightweight chat plan
 4. Implementer executes one seam at a time.
 5. Reviewer checks the diff against the plan and verification contract.
 6. Adversary stress-tests assumptions when risk, uncertainty, or recurrence justifies it.
-7. Archivist updates decisions, known failures, verification evidence, index, and archive summary.
+7. Archivist updates decisions, known failures, verification evidence, index, state-folder placement, and archive summary before turn closeout when project state changed.
 
 ## Escalation Boundaries
 
@@ -114,6 +123,8 @@ If approval is missing, write the escalation note and stop at the boundary.
 ## Archive Strategy
 
 Archive after the verification contract is complete or explicitly deferred. The archive summary should include what changed, why, evidence, decisions, known failures added, and remaining risks.
+
+Do the state move and pointer cleanup in the same turn: completed bundles leave `active/`, the index is updated, and open decisions or superseded bundles stop pointing at stale active paths.
 
 Do not archive by dumping chat history. Archive by preserving the minimum future-resume context.
 

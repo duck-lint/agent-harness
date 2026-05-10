@@ -42,3 +42,5 @@ Work is done only when:
 - verification items are pass, fail, blocked, skipped with reason, or deferred with owner
 - remaining risk is explicit
 - project memory is updated when relevant
+- if an implementation changed state, `docs/implementation-projects/active/`, `inactive/`, `archive/`, `index.md`, and `open-decisions.md` are reconciled in the same turn or explicitly marked blocked with owner
+- completed implementation bundles are moved out of `active/`; `active/` keeps one live numbered bundle
