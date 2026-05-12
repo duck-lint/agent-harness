@@ -5,6 +5,7 @@
 - Project:
 - Title:
 - Final status:
+- Delivery posture: scaffold-only | live-wired
 - Successor bundle:
 
 ## Goal
@@ -17,6 +18,14 @@
 ## Verification Evidence
 
 - 
+
+## User-Facing Acceptance Result
+
+- Acceptance question:
+- Probe:
+- Result:
+- Evidence:
+- If not passed, why this is not archived as behavior-complete:
 
 ## Decisions Carried Forward
 

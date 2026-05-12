@@ -22,6 +22,8 @@ When shared harness material is inaccessible from the current host, ask the user
 - If the user asks for implementation, state the likely blast radius before the first behavior-changing edit, then proceed. Use the `Harness Implementer` agent for implementation, `Harness Reviewer` for review, `Harness Adversary` for adversarial testing, and `Harness Archivist` for updating repo-local memory, decisions, failures, and summaries.
 - Keep claim typing lightweight in normal coding work: source, inference, unknowns, action state, blast radius, and validation path.
 - Use the full bridge schema only for schema, API, auth, storage, deployment, broad behavior, high-uncertainty, or type-system work.
+- Treat scaffolding, wiring, and user-facing behavior as separate states. Do not call behavior implemented because types, fields, files, paths, routes, crates, configs, fixtures, mocks, dry runs, or nominal callers exist.
+- For every non-trivial behavior claim, require a named user-facing acceptance probe. `live-wired` means each live behavior claim maps to a passing probe where a non-test caller or operator surface exercised the intended path against the intended backend, target, or failure source and produced the expected user-visible consequence.
 - Prefer plain software-engineering language. Use type-system vocabulary only when it clarifies a real distinction.
 - Do not preserve legacy behavior, compatibility layers, migration shims, or dead code unless the repo documents a support obligation or the user asks for it. The risk here is silent bloat and rot so if something is not preserved when a new direction is taken, it should be excised, not just left to wither.
 - Do not silently widen scope. If the change crosses a boundary the user likely did not intend, pause and ask.
@@ -53,7 +55,9 @@ Pause for explicit approval before crossing any of these unless the user already
 
 ## Verification Discipline
 - Every non-trivial change needs an explicit verification path before it is called done.
+- Every behavior-facing change needs a user-facing acceptance probe before it is called `live-wired` or complete.
 - A verification item must end as pass, fail, blocked, skipped with reason, or deferred with owner.
+- If only structural checks pass, mark the result `scaffold-only`, blocked, skipped, or deferred with owner; do not archive it as completed behavior.
 - Prefer the narrowest discriminating check first, then broaden only as the blast radius requires.
 - If a check cannot be run, state why and what risk remains.
 - If work changes project-memory state, include closeout validation for state-folder placement and pointer cleanup.

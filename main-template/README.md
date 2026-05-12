@@ -10,6 +10,7 @@ The goal is not speed by default. The goal is lower ritual cost while preserving
 - Keep repo-local memory as the system of record. If future agents need it, document it in the repo harness.
 - Separate agents behaviorally even when the same model performs them.
 - Treat verification as a contract, not an afterthought.
+- Treat user-facing behavior as separate from implementation shape. Structure can be scaffolded; behavior needs a falsifiable acceptance probe.
 - Track recurring failure patterns separately from decisions.
 - Make prompts local-model compatible: bounded tasks, explicit inputs, observable outputs, and low reliance on intuition.
 
@@ -101,10 +102,10 @@ For small one-off work, skip project scaffolding and use a lightweight chat plan
 ## Workflow
 
 1. Main Harnessed Agent scouts the request and identifies the controlling surface.
-2. Planner creates or updates the plan, tracker, seams, approval gates, and verification contract.
+2. Planner creates or updates the plan, tracker, seams, approval gates, user-facing acceptance probe, and verification contract.
 3. Human approval is required before crossing approval boundaries.
 4. Implementer executes one seam at a time.
-5. Reviewer checks the diff against the plan and verification contract.
+5. Reviewer checks the diff against the plan, verification contract, and behavior acceptance probe.
 6. Adversary stress-tests assumptions when risk, uncertainty, or recurrence justifies it.
 7. Archivist updates decisions, known failures, verification evidence, index, state-folder placement, and archive summary before turn closeout when project state changed.
 

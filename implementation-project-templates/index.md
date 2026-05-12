@@ -21,6 +21,8 @@ This file is a template. After seeding it into a repo, replace the placeholder r
 
 When a bundle completes, move it from `active/` to `archive/`, add `implementation-XX-summary.md`, update this index, and repoint any superseded or inactive references that still target the old active paths in the same turn.
 
+Do not close or archive a `live-wired` behavior bundle unless every live behavior claim maps to a passing user-facing acceptance probe. If the evidence proves only fields, DTOs, files, paths, routes, crates, configs, nominal callers, mocks, fixtures, dry runs, or unit tests, keep the result `scaffold-only` and leave the behavior work active, blocked, or deferred with owner.
+
 ## Naming Rules
 
 - Use matching numbered prefixes within a state folder: `active/implementation-01-plan.md`, `active/implementation-01-tracker.md`, and `active/implementation-01-verification-contract.md` while a bundle is live.

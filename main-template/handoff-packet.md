@@ -34,6 +34,8 @@ Use this structure whenever work moves between agents or resumes in a new sessio
 ## Required Output
 
 - Expected result:
+- User-facing acceptance probe:
+- Delivery posture: scaffold-only | live-wired
 - Required checks:
 - Stop conditions:
 - Return format:

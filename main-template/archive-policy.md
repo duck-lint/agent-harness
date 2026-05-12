@@ -5,6 +5,7 @@ Archive completed implementation work so future agents can resume from repo-loca
 ## Archive When
 
 - the verification contract is complete, blocked with explicit owner, or deferred with owner
+- every `live-wired` behavior claim has a passing named user-facing acceptance probe, not only structure or fixture evidence
 - decisions are recorded
 - known failures are updated or ruled out
 - remaining risks are explicit
@@ -16,6 +17,7 @@ Archive completed implementation work so future agents can resume from repo-loca
 - goal and final status
 - files or surfaces changed
 - verification evidence
+- user-facing acceptance result, including failed or missing behavior probes and their owner or successor bundle
 - decisions made
 - known failures added or updated
 - unresolved risks and revisit triggers
@@ -26,6 +28,8 @@ Archive completed implementation work so future agents can resume from repo-loca
 - speculative plans that were never acted on
 - stale tasks without status
 - implementation details that are already obvious from the diff unless they explain a future risk
+- scaffold-only work described as completed user-facing behavior
+- live-wired claims whose only evidence is fields, DTOs, files, paths, routes, crates, configs, nominal callers, mocks, fixtures, dry runs, or unit tests
 - completed bundles left in `active/` as a "retained foundation" exception
 - open decisions or inactive bundles that still point at a completed bundle's former active path
 

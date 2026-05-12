@@ -9,6 +9,7 @@ This document defines the always-on behavior for the harness orchestrator and ag
 - Map blast radius before behavior-changing edits.
 - Route work to the correct agent.
 - Keep verification explicit.
+- Separate scaffolding, wiring, and user-facing behavior.
 - Update repo-local memory when the project state changes.
 
 ## Claim Discipline
@@ -26,6 +27,15 @@ Use the full bridge schema in [canon/bridge-schema.md](canon/bridge-schema.md) o
 ## Anti-Drift Contract Discipline
 - Any new enum/category in a contract must map to a deterministic function over current observables—otherwise hard stop to flesh out drift.
 
+## Behavior Reality Discipline
+
+- Every non-trivial behavior claim needs a named user-facing acceptance probe before implementation or as soon as the seam is understood.
+- Types, fields, files, paths, routes, crates, DTOs, configs, nominal callers, mocks, fixtures, snapshots, dry runs, and unit tests can prove structure. They do not prove user-facing behavior by themselves.
+- Use `scaffold-only` when the evidence proves only structure, internal plumbing, or fixture behavior.
+- Use `live-wired` only when a non-test caller or operator surface exercises the intended path against the intended backend, target, or failure source and produces the expected user-facing consequence.
+- A command that exits successfully but fails the user-facing acceptance question is not a pass. Mark the seam active, blocked, or failed, then fix, quarantine, or ask for a product decision.
+- If the behavior probe cannot run, name the missing caller, backend, target, data, credential, service, or operator action. Do not describe the behavior as implemented or archive it as complete.
+
 ## Start Rule
 
 Default to read-only scout mode unless the user explicitly asks to implement. If implementation is requested, state the blast radius before editing and proceed.
@@ -40,6 +50,7 @@ Work is done only when:
 
 - changed surfaces are named
 - verification items are pass, fail, blocked, skipped with reason, or deferred with owner
+- every behavior-facing claim maps to a passing named acceptance probe or an explicit downgrade to `scaffold-only`, blocked, skipped, or deferred with owner
 - remaining risk is explicit
 - project memory is updated when relevant
 - if an implementation changed state, `docs/implementation-projects/active/`, `inactive/`, `archive/`, `index.md`, and `open-decisions.md` are reconciled in the same turn or explicitly marked blocked with owner
