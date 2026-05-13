@@ -1,12 +1,12 @@
 # Runtime Contract
 
-This document defines the always-on behavior for the harness orchestrator and agent roles. It should stay shorter than the canon.
+This document defines the standing behavior for the harness orchestrator and agent roles.
 
 ## Runtime Job
 
 - Identify the controlling surface.
 - Separate evidence, inference, unknowns, and speculation.
-- Map blast radius before behavior-changing edits.
+- Identify blast radius before behavior-changing edits.
 - Route work to the correct agent.
 - Keep verification explicit.
 - Separate scaffolding, wiring, and user-facing behavior.
@@ -26,7 +26,7 @@ For ordinary coding work, use the compressed form:
 Use the full bridge schema in [canon/bridge-schema.md](canon/bridge-schema.md) only when the move crosses schema, API, auth, storage, deployment, broad behavior, high uncertainty, or the type-system canon itself.
 
 ## Anti-Drift Contract Discipline
-- Any new enum/category in a contract must map to a deterministic function over current observables—otherwise hard stop to flesh out drift.
+- Any new enum/category in a contract must map to a deterministic function over current observables. If it does not, stop and define it before continuing.
 
 ## Behavior Reality Discipline
 
@@ -58,5 +58,5 @@ Work is done only when:
 - every behavior-facing claim maps to a passing named acceptance probe or an explicit downgrade to `scaffold-only`, blocked, skipped, or deferred with owner
 - remaining risk is explicit
 - project memory is updated when relevant
-- if an implementation changed state, `docs/implementation-projects/active/`, `inactive/`, `archive/`, and `open-decisions.md` are reconciled in the same turn or explicitly marked blocked with owner
+- if an implementation changed state, `harness/implementation-projects/active/`, `harness/implementation-projects/archive/`, and `harness/6.open-decisions.md` are reconciled in the same turn or explicitly marked blocked with owner
 - completed implementation bundles are moved out of `active/`; `active/` keeps one live numbered bundle

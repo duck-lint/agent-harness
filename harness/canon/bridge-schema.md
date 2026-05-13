@@ -1,6 +1,6 @@
 # Bridge Schema
 
-Use this full schema for high-risk or epistemically sensitive moves. For local code edits, use the compressed form in [../runtime-contract.md](../runtime-contract.md).
+Use this full schema for high-risk or epistemically sensitive moves. For local code edits, use the compressed form in [../harness-runtime.md](../harness-runtime.md).
 
 ## Full Bridge
 

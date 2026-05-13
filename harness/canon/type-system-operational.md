@@ -1,10 +1,10 @@
 # Type System Operational Guide
 
-This is the short operational form for agents. The deeper canon remains in the shared harness `agent-reference-type-system.md` source or its mirrored host copy.
+This is the repo-local operational form for claim discipline. Use it during normal coding work so evidence, inference, user intent, proposed action, and validated result do not blur together.
 
 ## Purpose
 
-Prevent agents from blending observed behavior, user desire, guessed behavior, proposed implementation, and validated result into one untyped claim.
+Prevent observed behavior, user desire, guessed behavior, proposed implementation, and validated result from being treated as the same kind of claim.
 
 ## Three Axes
 

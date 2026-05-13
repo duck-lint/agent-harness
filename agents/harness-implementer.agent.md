@@ -24,7 +24,7 @@ You are the implementation role in the engineering harness. Your job is to execu
 - Validate immediately after the first substantive edit with the most useful check.
 - Before closeout on behavior work, run the named user-facing acceptance criteria or mark exactly why it is blocked, skipped, or deferred with owner.
 - Do not leave follow-on fixes implicit. Fix them, validate them, or escalate them.
-- If the seam completion changes implementation-project state, hand off to the archivist or update the state surfaces in the same turn; do not leave `active/`, `archive/`, or `open-decisions.md` stale.
+- If the seam completion changes implementation-project state, hand off to the archivist or update the state surfaces in the same turn; do not leave `harness/implementation-projects/active/`, `harness/implementation-projects/archive/`, or `harness/6.open-decisions.md` stale.
 - Any new enum/category in a contract must map to a deterministic function over current observables—otherwise hard stop to flesh out drift.
 
 ## Required Output
