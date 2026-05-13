@@ -1,6 +1,6 @@
 # Archive Policy
 
-Archive completed implementation work so future agents can resume from repo-local memory instead of chat history.
+Archive completed implementation work so later sessions can resume from repo-local memory instead of chat history.
 
 ## Archive When
 
@@ -9,7 +9,7 @@ Archive completed implementation work so future agents can resume from repo-loca
 - decisions are recorded
 - known failures are updated or ruled out
 - remaining risks are explicit
-- the same turn also updates `docs/implementation-projects/index.md`, `open-decisions.md`, and any superseded or inactive pointers that still target the completed bundle
+- the same turn also updates `docs/implementation-projects/open-decisions.md` and any paused or deferred pointers that still target the completed bundle
 
 ## Archive Summary Must Include
 
@@ -17,15 +17,17 @@ Archive completed implementation work so future agents can resume from repo-loca
 - goal and final status
 - files or surfaces changed
 - verification evidence
-- user-facing acceptance result, including failed or missing behavior probes and their owner or successor bundle
+- user-facing acceptance result, including failed or missing behavior probes and their owner or user-provided next end goal
 - decisions made
 - known failures added or updated
 - unresolved risks and revisit triggers
+- next end goal only if the user has already provided it
 
 ## Do Not Archive
 
 - raw chat transcript
 - speculative plans that were never acted on
+- speculative successor implementations, roadmap bundles, or future layer designs
 - stale tasks without status
 - implementation details that are already obvious from the diff unless they explain a future risk
 - scaffold-only work described as completed user-facing behavior
@@ -38,16 +40,16 @@ Archive completed implementation work so future agents can resume from repo-loca
 Use explicit state folders under `docs/implementation-projects/` as the canonical location for numbered implementation bundles:
 
 - `active/` for the single implementation bundle currently in live execution
-- `inactive/` for numbered implementation bundles that are planned, deferred, or otherwise not currently active
+- `inactive/` for numbered implementation bundles that were already part of the current user-authorized implementation but are paused, blocked, or deferred
 - `archive/` for completed implementation bundles
 
-The root `docs/implementation-projects/` directory is not a canonical home for numbered implementation plan, tracker, verification, decisions, seam, evidence, or summary files. Keep only the shared lookup and support surfaces there, such as `index.md`, `open-decisions.md`, `templates/`, and the state folders themselves.
+The root `docs/implementation-projects/` directory is not a canonical home for numbered implementation plan, tracker, verification, decisions, seam, evidence, or summary files. Keep only the shared support surfaces there, such as `open-decisions.md`, `templates/`, and the state folders themselves.
 
 ## Archive Location
 
 Use `docs/implementation-projects/archive/` as the canonical home for completed implementation-project bundles.
 
-Keep non-archived numbered project files under `active/` or `inactive/` until work is complete. When an implementation is complete, move its working-memory bundle into `archive/`:
+Keep non-archived numbered project files under `active/` or `inactive/` until work is complete. Do not create inactive bundles as future roadmap placeholders. When an implementation is complete, move its working-memory bundle into `archive/`:
 
 - `implementation-XX-plan.md`
 - `implementation-XX-tracker.md`
@@ -56,7 +58,7 @@ Keep non-archived numbered project files under `active/` or `inactive/` until wo
 - matching `implementation-XX-seams/` or `implementation-XX-evidence/` directories, when they exist
 - `implementation-XX-summary.md`
 
-The root `docs/implementation-projects/index.md` remains the quick lookup surface and must link to the archived files for completed implementations.
+The state folders are the implementation state authority. Do not maintain a separate implementation index or project table.
 
 `docs/implementation-projects/open-decisions.md` remains the decision authority. Its summary table should link to the decision section itself or another still-authoritative surface, not to a stale active tracker from a completed implementation.
 
@@ -70,6 +72,5 @@ When work changes an implementation state from active to complete, do the archiv
 
 - move the numbered bundle from `active/` to `archive/`
 - add or update the archive summary
-- update `index.md` to remove the completed bundle from the live active set
-- repoint `open-decisions.md` and any inactive or superseded bundles that still target the old active paths
+- repoint `open-decisions.md` and any paused or deferred bundles that still target the old active paths
 - if any of this cannot be completed, mark the closeout blocked with owner instead of leaving the repo in a mixed state

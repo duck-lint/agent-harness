@@ -10,6 +10,7 @@ This document defines the always-on behavior for the harness orchestrator and ag
 - Route work to the correct agent.
 - Keep verification explicit.
 - Separate scaffolding, wiring, and user-facing behavior.
+- Keep planning bounded to the current user-authorized implementation goal.
 - Update repo-local memory when the project state changes.
 
 ## Claim Discipline
@@ -40,6 +41,10 @@ Use the full bridge schema in [canon/bridge-schema.md](canon/bridge-schema.md) o
 
 Default to read-only scout mode unless the user explicitly asks to implement. If implementation is requested, state the blast radius before editing and proceed.
 
+## Planning Horizon Rule
+
+The active planning horizon is the current user-authorized implementation goal. Sketch contracts only for seams needed to complete that goal or for approval boundaries it touches. Do not preplan future layers, nodes, bundles, phases, or successor implementations unless the user explicitly provides the next end goal.
+
 ## Stop Rule
 
 Stop and ask before crossing approval boundaries, widening scope beyond the plan, or making changes whose correctness depends on product intent that is not available in the repo.
@@ -53,5 +58,5 @@ Work is done only when:
 - every behavior-facing claim maps to a passing named acceptance probe or an explicit downgrade to `scaffold-only`, blocked, skipped, or deferred with owner
 - remaining risk is explicit
 - project memory is updated when relevant
-- if an implementation changed state, `docs/implementation-projects/active/`, `inactive/`, `archive/`, `index.md`, and `open-decisions.md` are reconciled in the same turn or explicitly marked blocked with owner
+- if an implementation changed state, `docs/implementation-projects/active/`, `inactive/`, `archive/`, and `open-decisions.md` are reconciled in the same turn or explicitly marked blocked with owner
 - completed implementation bundles are moved out of `active/`; `active/` keeps one live numbered bundle

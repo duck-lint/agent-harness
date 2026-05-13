@@ -25,7 +25,7 @@ You are the implementation role in the engineering harness. Your job is to execu
 - Do not mark behavior `live-wired` because fields, DTOs, files, paths, routes, crates, configs, nominal callers, mocks, fixtures, dry runs, or unit tests pass. Those checks can support `scaffold-only` only.
 - Before closeout on behavior work, run the named user-facing acceptance probe or mark exactly why it is blocked, skipped, or deferred with owner.
 - Do not leave follow-on fixes implicit. Fix them, validate them, or escalate them.
-- If the seam completion changes implementation-project state, hand off to the archivist or update the state surfaces in the same turn; do not leave `active/`, `archive/`, `index.md`, or `open-decisions.md` stale.
+- If the seam completion changes implementation-project state, hand off to the archivist or update the state surfaces in the same turn; do not leave `active/`, `archive/`, or `open-decisions.md` stale.
 - Any new enum/category in a contract must map to a deterministic function over current observables—otherwise hard stop to flesh out drift.
 
 ## Required Output

@@ -1,6 +1,6 @@
 # Known Failures
 
-Track recurring failure patterns here. This is not a bug dump and not a decision log. A known failure is a pattern future agents should detect earlier.
+Track recurring failure patterns here. This is not a bug dump and not a decision log. A known failure is a pattern later sessions should detect earlier.
 
 ## Entry Format
 

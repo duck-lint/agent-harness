@@ -7,7 +7,8 @@ The goal is not speed by default. The goal is lower ritual cost while preserving
 ## Core Principles
 
 - Use a map, not an encyclopedia. Runtime prompts point to deeper docs instead of embedding them.
-- Keep repo-local memory as the system of record. If future agents need it, document it in the repo harness.
+- Keep repo-local memory as the system of record for completed or paused implementation work.
+- Keep the active planning horizon on the current user-authorized implementation goal. Archive completed work, then wait for the user to provide the next end goal before designing the next implementation.
 - Separate agents behaviorally even when the same model performs them.
 - Treat verification as a contract, not an afterthought.
 - Treat user-facing behavior as separate from implementation shape. Structure can be scaffolded; behavior needs a falsifiable acceptance probe.
@@ -39,7 +40,7 @@ main-template/
     bridge-schema.md
 
 implementation-project-templates/
-  index.md
+  open-decisions.md
   implementation-plan.md
   implementation-tracker.md
   implementation-verification-contract.md
@@ -64,13 +65,12 @@ docs/harness/
     bridge-schema.md
 
 docs/implementation-projects/
-  index.md
   open-decisions.md
   active/
   inactive/
   archive/
   templates/
-    index.md
+    open-decisions.md
     implementation-plan.md
     implementation-tracker.md
     implementation-verification-contract.md
@@ -79,7 +79,9 @@ docs/implementation-projects/
     seam-handoff.md
 ```
 
-For small one-off work, skip project scaffolding and use a lightweight chat plan. For multi-step, repo-scoped, or architecture-shaping work, create the numbered implementation files.
+For small one-off work, skip project scaffolding and use a lightweight chat plan. For multi-step, repo-scoped, or architecture-shaping work, create numbered implementation files only for the current user-authorized implementation goal.
+
+The implementation-project state folders are the lookup surface: current work lives in `active/`, paused current-scope work lives in `inactive/`, and completed bundles live in `archive/`. Do not maintain a separate implementation index or project table.
 
 ## File Responsibilities
 
@@ -91,8 +93,7 @@ For small one-off work, skip project scaffolding and use a lightweight chat plan
 - `archive-policy.md`: when and how completed work is summarized.
 - `canon/type-system-operational.md`: compact operational version of the claim discipline.
 - `canon/bridge-schema.md`: full bridge schema for high-risk or epistemically sensitive moves.
-- `index.md`: top-level implementation bundle state and quick lookup surface.
-- `open-decisions.md`: authoritative current-batch decision surface.
+- `open-decisions.md`: authoritative current decision surface.
 - `implementation-XX-plan.md`: goal, non-goals, seams, blast radius, and approval gates.
 - `implementation-XX-tracker.md`: status, work log, agent handoffs, and current next action.
 - `implementation-XX-verification-contract.md`: concrete validation obligations and evidence.
@@ -102,12 +103,12 @@ For small one-off work, skip project scaffolding and use a lightweight chat plan
 ## Workflow
 
 1. Main Harnessed Agent scouts the request and identifies the controlling surface.
-2. Planner creates or updates the plan, tracker, seams, approval gates, user-facing acceptance probe, and verification contract.
+2. Planner creates or updates the plan, tracker, seams, approval gates, user-facing acceptance probe, and verification contract for the current implementation goal only.
 3. Human approval is required before crossing approval boundaries.
 4. Implementer executes one seam at a time.
 5. Reviewer checks the diff against the plan, verification contract, and behavior acceptance probe.
 6. Adversary stress-tests assumptions when risk, uncertainty, or recurrence justifies it.
-7. Archivist updates decisions, known failures, verification evidence, index, state-folder placement, and archive summary before turn closeout when project state changed.
+7. Archivist updates decisions, known failures, verification evidence, state-folder placement, and archive summary before turn closeout when project state changed.
 
 ## Escalation Boundaries
 
@@ -123,11 +124,11 @@ If approval is missing, write the escalation note and stop at the boundary.
 
 ## Archive Strategy
 
-Archive after the verification contract is complete or explicitly deferred. The archive summary should include what changed, why, evidence, decisions, known failures added, and remaining risks.
+Archive after the verification contract is complete or explicitly deferred. The archive summary should include what changed, why, evidence, decisions, known failures added, and remaining risks. It should not design the next implementation unless the user has already supplied that next end goal.
 
-Do the state move and pointer cleanup in the same turn: completed bundles leave `active/`, the index is updated, and open decisions or superseded bundles stop pointing at stale active paths.
+Do the state move and pointer cleanup in the same turn: completed bundles leave `active/`, and open decisions or paused/deferred bundles stop pointing at stale active paths.
 
-Do not archive by dumping chat history. Archive by preserving the minimum future-resume context.
+Do not archive by dumping chat history. Archive by preserving the minimum context needed to understand the completed implementation and any explicit unresolved risks.
 
 ## Local-Model Compatibility
 

@@ -20,6 +20,7 @@ When shared harness material is inaccessible from the current host, ask the user
 ## Runtime Contract
 - Default to an ask-first, read-only scout pass unless the user explicitly asks to implement, edit, patch, create, or otherwise make the change now.
 - If the user asks for implementation, state the likely blast radius before the first behavior-changing edit, then proceed. Use the `Harness Implementer` agent for implementation, `Harness Reviewer` for review, `Harness Adversary` for adversarial testing, and `Harness Archivist` for updating repo-local memory, decisions, failures, and summaries.
+- Keep the active planning horizon to the current user-authorized implementation goal. Rough contracts may be sketched only for seams needed to complete that goal or for approval boundaries it touches. Do not design, sequence, create, or hand off future implementation bundles unless the user explicitly provides the next end goal.
 - Keep claim typing lightweight in normal coding work: source, inference, unknowns, action state, blast radius, and validation path.
 - Use the full bridge schema only for schema, API, auth, storage, deployment, broad behavior, high-uncertainty, or type-system work.
 - Treat scaffolding, wiring, and user-facing behavior as separate states. Do not call behavior implemented because types, fields, files, paths, routes, crates, configs, fixtures, mocks, dry runs, or nominal callers exist.
@@ -36,12 +37,13 @@ When shared harness material is inaccessible from the current host, ask the user
 - Use `Harness Archivist` when project memory, decisions, verification evidence, known failures, or archive summaries need to be updated.
 
 ## Repo-Local Memory
-- Use the `Harness Archivist` agent to keep repo-local memory accurate and useful for future agents and operator sessions. Do not let it grow stale or let important decisions and evidence slip through the cracks. This will help continuity if the user returns later or if another agent needs to pick up where you left off.
-- For multi-step or repo-scoped work, prefer implementation-project docs in the active repository when they exist, such as `docs/implementation-projects/index.md` and matching numbered project files.
+- Use the `Harness Archivist` agent to keep repo-local memory accurate and useful for resuming completed or paused implementation work. Do not let it grow stale or let important decisions and evidence slip through the cracks.
+- For multi-step or repo-scoped work, prefer implementation-project docs in the active repository when they exist, such as `docs/implementation-projects/open-decisions.md` and matching numbered project files under `active/`.
 - If the active repo does not yet contain seeded implementation-project docs, ask whether to create or seed the minimal set needed for continuity from the canonical library.
 - Prefer numbered project pairs such as `implementation-01-plan.md` and `implementation-01-tracker.md`; use the same prefix for verification, decisions, seams, and evidence once those docs exist in the repo.
+- Repo-local memory should preserve the completed current implementation and its evidence. It should not become a speculative roadmap for future layers, nodes, or architecture.
 - Treat `docs/implementation-projects/open-decisions.md` as the decision authority. Do not treat a completed implementation's old active tracker as the authoritative decision surface just because it was once live.
-- When implementation state changes, reconcile `active/`, `inactive/`, `archive/`, `index.md`, and `open-decisions.md` in the same turn or mark the closeout blocked with owner.
+- When implementation state changes, reconcile `active/`, `inactive/`, `archive/`, and `open-decisions.md` in the same turn or mark the closeout blocked with owner.
 - Keep `active/` to one live numbered bundle. Do not leave completed bundles there as "retained foundation" exceptions.
 - Keep small one-off fixes lightweight; do not create project paperwork for trivial local edits.
 

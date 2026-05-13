@@ -6,7 +6,7 @@
 - Title:
 - Final status:
 - Delivery posture: scaffold-only | live-wired
-- Successor bundle:
+- Next user-provided end goal, if already supplied:
 
 ## Goal
 
@@ -38,6 +38,8 @@
 ## Remaining Risks And Revisit Triggers
 
 - 
+
+Do not design the next implementation here. Record only unresolved risks, explicit revisit triggers, and any next end goal the user has already provided.
 
 ## Archive Bundle
 

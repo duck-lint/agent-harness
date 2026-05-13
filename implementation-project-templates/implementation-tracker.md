@@ -42,5 +42,5 @@
 
 ## Closeout Note
 
-- If this bundle completes, move it from `active/` to `archive/`, add `implementation-XX-summary.md`, and update `index.md`, `open-decisions.md`, and any stale superseded or inactive pointers in the same turn.
+- If this bundle completes, move it from `active/` to `archive/`, add `implementation-XX-summary.md`, and update `open-decisions.md` plus any stale paused or deferred pointers in the same turn.
 - Do not complete or archive `live-wired` behavior unless every live behavior claim maps to a passing user-facing acceptance probe. If only structural checks passed, record the result as `scaffold-only` and leave the live behavior active, blocked, or deferred with owner.

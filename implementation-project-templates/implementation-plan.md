@@ -3,6 +3,12 @@
 ## Intent
 
 
+## Planning Horizon
+
+- Current user-authorized implementation goal:
+- Out-of-horizon future work to avoid planning now:
+- Rough contracts are allowed only for seams needed by this implementation or approval boundaries it touches.
+
 ## Non-Goals
 
 
@@ -35,6 +41,8 @@
 ## Seams
 
 1. 
+
+Only list seams required to complete the current implementation goal. Do not add future-layer, successor-bundle, or roadmap seams unless the user has explicitly supplied that next end goal.
 
 ## Completion Rule
 
